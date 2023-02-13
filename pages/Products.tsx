@@ -1,6 +1,7 @@
 // pages/Products.tsx
 import React, { useState } from 'react';
 import Product from './Product';
+import style from '@/styles/Home.module.css'
 
 const Products: React.FC = () => {
   const [products, setProducts] = useState([
@@ -10,8 +11,8 @@ const Products: React.FC = () => {
   ]);
 
   return (
-    <div>
-      <h1>Products</h1>
+    <div className={style.container}>
+      <h1 className={style.title}>Products</h1>
       {products.map((product) => (
         <Product key={product.name} name={product.name} count={product.count} />
       ))}
