@@ -1,7 +1,7 @@
 // pages/Product.tsx
 import React, { useState } from 'react';
 import styles from '@/styles/Home.module.css'
-import { Card } from '@nextui-org/react';
+import { Card, Text } from '@nextui-org/react';
 
 
 // Define the type of props that the component will receive
@@ -16,16 +16,17 @@ const Product: React.FC<Props> = ({ name, count }) => {
 
     return (
         <>
-            <Card css={{ mw: "400px" }}>
+            <Card isHoverable variant="bordered" css={{ mw: "400px" }}>
                 <Card.Header className={styles.productName}>{name}</Card.Header>
                 <Card.Body>
-                    <p>Count: {quantity}</p>
+                    <Text>Count: {quantity}</Text>
 
                     <button onClick={() => setQuantity(quantity + 1)}>Increase</button>
 
                     <button onClick={() => setQuantity(quantity - 1)}>Decrease</button>
                 </Card.Body>
             </Card>
+            <Card.Divider></Card.Divider>
         </>
     );
 };
