@@ -28,7 +28,8 @@ export default function Product({ product }: ProductProps) {
 export async function getStaticPaths() {
     // dummyjson.com/products returns an array of products in JSON
     const res = await fetch('https://dummyjson.com/products')
-    const products = await res.json()
+    const data = await res.json()
+    const products = data.products
 
     // Get the paths we want to pre-render based on products
     const paths = products.map((product: { id: number }) => ({
@@ -43,7 +44,6 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
         `https://dummyjson.com/products/${params.id}`
     )
     const product = await res.json()
-    console.log('product', product)
 
     return { props: { product } }
 }
