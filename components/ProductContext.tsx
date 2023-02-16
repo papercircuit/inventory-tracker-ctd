@@ -20,7 +20,7 @@ interface ProductContextProps {
 
 export const ProductContext = createContext<ProductContextProps>({ products: [] });
 
-export const ProductProvider: React.FC = ({ children }) => {
+export const ProductProvider: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
