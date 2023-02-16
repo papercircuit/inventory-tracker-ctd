@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import dynamic from 'next/dynamic';
-
 import Product from './Product';
 import style from '@/styles/Products.module.css'
 import { ProductContext } from '@/components/ProductContext';

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 // pages/index.tsx
-import Products from './Products';
+import Products from '@/components/Products';
 import Nav from '@/components/Navbar';
 import { createTheme, NextUIProvider } from '@nextui-org/react';
 
