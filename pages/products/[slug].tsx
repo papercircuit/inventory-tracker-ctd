@@ -1,48 +1,54 @@
-import { useRouter } from 'next/router'
+// when we navigate to products, display all the products
 
-type ProductProps = {
-    product: {
-        title: string
-        stock: number
-        images: string[]
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
 
-    }
-}
+import { Product } from '@/types';
+import { getAllProducts, getProductBySlug } from '@/lib/api';
 
-export default function Product({ product }: ProductProps) {
-    const router = useRouter()
+
+type Props = {
+    product: Product;
+};
+
+export default function ProductPage({ product }: Props) {
+    const router = useRouter();
 
     if (router.isFallback) {
-        return <div>Loading...</div>
+        return <div>Loading...</div>;
     }
 
     return (
         <div>
-            <h1>Title: {product.title}</h1>
-            <p>Stock: {product.stock}</p>
-            <p>Image:</p> <img src={product.images[0]} /> 
+            <span> product={product} </span>
         </div>
-    )
+    );
 }
 
-export async function getStaticPaths() {
-    // dummyjson.com/products returns an array of products in JSON
-    const res = await fetch('https://dummyjson.com/products')
-    const products = await res.json()
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+    const product = await getProductBySlug(params.slug as string);
 
-    // Get the paths we want to pre-render based on products
-    const paths = products.map((product: { id: number }) => ({
-        params: { id: product.id.toString() }, 
-    }))
-   
-    return { paths, fallback: true }
+    return {
+        props: {
+            product,
+        },
+    };
 }
 
-export async function getStaticProps({ params }: { params: { id: string } }) {
-    const res = await fetch(
-        `https://dummyjson.com/products/${params.id}`
-    )
-    const user = await res.json()
+export const getStaticPaths: GetStaticPaths = async () => {
 
-    return { props: { Product } }
+    const products = await getAllProducts();
+
+    const paths = products.map((product) => ({
+        params: {
+            slug: product.slug,
+        },
+    }));
+
+    return {
+        paths,
+        fallback: true,
+    };
 }
+
+// Path: pages/products/index.tsx
