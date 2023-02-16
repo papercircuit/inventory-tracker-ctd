@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import { Card, Text, Button, Container, Image } from '@nextui-org/react';
 import { ProductContext } from '@/components/ProductContext';
 
-// Define the type of props that the component will receive
 interface Props {
     product: {
         title: string;
@@ -10,6 +9,7 @@ interface Props {
         images: string[];
     }
 }
+
 
 const Product: React.FC<Props> = ({ product }) => {
     const { products } = useContext(ProductContext);

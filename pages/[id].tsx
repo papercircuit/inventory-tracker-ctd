@@ -5,7 +5,6 @@ type ProductProps = {
         title: string
         stock: number
         images: string[]
-
     }
 }
 
@@ -25,7 +24,7 @@ export default function Product({ product }: ProductProps) {
     )
 }
 
-export async function getStaticPaths() {
+async function getStaticPaths() {
     // dummyjson.com/products returns an array of products in JSON
     const res = await fetch('https://dummyjson.com/products')
     const data = await res.json()
@@ -39,7 +38,7 @@ export async function getStaticPaths() {
     return { paths, fallback: true }
 }
 
-export async function getStaticProps({ params }: { params: { id: string } }) {
+async function getStaticProps({ params }: { params: { id: string } }) {
     const res = await fetch(
         `https://dummyjson.com/products/${params.id}`
     )
