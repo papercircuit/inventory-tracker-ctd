@@ -1,1 +1,0 @@
-// This will render the main page with the products.
