@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Product from './Product';
 import style from '@/styles/Home.module.css'
+import products from '@/data/products.json'
 
 const Products: React.FC = () => {
     // Define the type of props that the component will receive and set the initial state

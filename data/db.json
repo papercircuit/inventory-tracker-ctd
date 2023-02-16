@@ -1,0 +1,19 @@
+{
+    "products": [
+        {
+            "name": "Bananas",
+            "count": 5,
+            "imgURL": "https://www.seekpng.com/png/full/24-249030_banana-png-free-commercial-use-images-banana.png"
+        },
+        {
+            "name": "Apples",
+            "count": 10,
+            "imgURL": "https://www.nicepng.com/png/detail/153-1537482_clip-freeuse-apples-transparent-top-red-apple.png"
+        },
+        {
+            "name": "Oranges",
+            "count": 7,
+            "imgURL": "https://www.publicdomainpictures.net/pictures/10000/velka/orange-871282749123hSB3.jpg"
+        }
+    ]
+}
