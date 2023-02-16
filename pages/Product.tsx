@@ -22,19 +22,18 @@ const Product: React.FC<Props> = ({ product }) => {
         <>
             {products ? (
                 <Card isHoverable variant="bordered" css={{
-                    mw: "400px",
-                    mb: "1rem",
-                    bg: "linear-gradient(19deg, rgba(2,0,100,.3) 0%, rgba(9,9,121,1) 0%, rgba(0,255,255,.6) 100%)",
-                    color: "white",
+                    width: "400px",
+                    margin: "1rem",
+                    padding: "1.5rem",
                     borderRadius: "10px",
                     boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
-                    p: "1rem",
-                    m: "1rem",
                     fontSize: "1.5rem",
                     fontWeight: "600",
                     textAlign: "center",
                     textTransform: "uppercase",
-                    lineHeight: "1.5"
+                    lineHeight: "1.5",
+                    backgroundColor: "white",
+                    color: "black",
                 }}>
                     <Card.Header className={styles.productName}>{product.title}</Card.Header>
                     <Card.Body>
