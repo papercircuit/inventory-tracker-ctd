@@ -4,9 +4,33 @@ import styles from '@/styles/Home.module.css'
 // pages/index.tsx
 import Products from './Products';
 import Nav from '@/components/Navbar';
+import { createTheme, NextUIProvider } from '@nextui-org/react';
+
+const theme = createTheme({
+  type: 'dark',
+  theme: {
+    colors: {
+      primary: '#0070f3',
+      secondary: '#ff0080',
+      success: '#67e480',
+      error: '#ff5252',
+      warning: '#ff9f43',
+      info: '#00b0ff',
+      background: '#1e1e1e',
+      surface: '#252525',
+      text: '#fff',
+      border: '#333',
+      disabled: '#666',
+      placeholder: '#888',
+      backdrop: '#000',
+    }
+  }
+});
+
+export
 
 
-const inter = Inter({ subsets: ['latin'] })
+  const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -20,7 +44,8 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.container}>
-         <Nav />
+          <Nav />
+          
           <Products />
         </div>
       </main>

@@ -1,7 +1,5 @@
 import React, { useState, useContext } from 'react';
 import { Card, Text, Button, Container, Image } from '@nextui-org/react';
-import { useEffect } from 'react';
-import styles from '@/styles/Product.module.css'
 import { ProductContext } from '@/components/ProductContext';
 
 // Define the type of props that the component will receive
@@ -35,9 +33,21 @@ const Product: React.FC<Props> = ({ product }) => {
                     backgroundColor: "white",
                     color: "black",
                 }}>
-                    <Card.Header className={styles.productName}>{product.title}</Card.Header>
+                    <Card.Header css={{
+                        fontSize: "2rem",
+                        fontWeight: "700",
+                        textAlign: "center"
+                    }}>{product.title}</Card.Header>
                     <Card.Body>
-                        <Text>Count: {quantity}</Text>
+                        <Text
+                            css={{
+                                fontSize: "1.5rem",
+                                fontWeight: "600",
+                                textAlign: "center",
+                                textTransform: "uppercase",
+                                lineHeight: "1.5",
+                            }}
+                        >Count: {quantity}</Text>
                         <Image src={image} width="100px" height="100px" />
                         <Container>
                             <Button onPress={() => setQuantity(quantity + 1)}>Increase</Button>
